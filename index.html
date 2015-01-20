@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap Play!</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/pushpop-state.js"></script>
+ 	</head>
+	<body>
+		<header class="container">
+			<section class="row">
+				<nav class="menuBar navbar navbar-default">
+					<div class="navbar-header">
+				      <li type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <li class="home-button">
+				      	<a class="navbar-brand" href="home">Magasinet Freekick</a>
+				      </li>
+				    </div>
+				    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+				    	<ul class="nav navbar-nav">
+				    		<li class="active home-button"><a href="home">Home</a></li>
+				    		<li class="premier-league-button"><a href="premier-league">Premier League</a></li>
+				    		<li class="ligue-1-button"><a href="ligue-1">Ligue 1</a></li>
+				    		<li class="la-liga-button"><a href="la-liga">La Liga</a></li>
+				    		<li class="dropdown">
+				    			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+					    		<ul class="dropdown-menu" role="menu">
+	  								<li class="serie-a-button"><a href="serie-a">Italy: Serie A</a></li>
+	  								<li class="bundesliga-button"><a href="bundesliga">Germany: Bundesliga</a></li>
+	  								<li class="eredivisie-button"><a href="eredivisie">The Netherlands: Eredivisie</a></li>
+	  								<li class="allsvenskan-button"><a href="allsvenskan">Sweden: Allsvenskan</a></li>
+	  							</ul>
+				    		</li>
+				    	</ul>
+				    </div>
+				</nav>
+			</section>
+			<section>
+				<ol class="breadcrumb">
+  					<li class="active">Home</li>
+				</ol>
+			</section>
+		</header>
+		<main class="backGround container">
+			<section class="home">
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+					<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel" data-slide-to="1"></li>
+					    <li data-target="#carousel" data-slide-to="2"></li>
+					    <li data-target="#carousel" data-slide-to="3"></li>
+					  </ol>
+					  <!-- Carousel items -->
+					  <div class="carousel-inner">
+					    <div class="active item">
+					    	<p class="headlineCarousel">Welcome to the website!</p>
+							<p class="firstCarouselPTag">To find out more about the most popular leagues around Europe, use the menus at the top or scroll through the slides.</p>
+					    </div>
+					    	
+					    <div class="item">
+					    	<img src="imgs/barclays_premier_league_2014_2015-wallpaper-1280x720.jpg">
+					    	<div class="carousel-caption">
+					    		<p class="plLearnMore">To learn more about the Premier League, just click the learn more button below</p>
+					    		<p><a class="btn btn-primary btn-lg" href="premier-league" role="button">Learn more</a></p>
+					    	</div>
+					    </div>
+					    <div class="item">
+					    	<img src="imgs/1007924-19193713-1600-900.jpg">
+					    	<div class="carousel-caption">
+					    		<p>Ligue 1</p>
+					    		<p class="ligue1LearnMore">To learn more about Ligue 1, just click the learn more button below</p>
+					    		<p><a class="btn btn-primary btn-lg" href="ligue-1" role="button">Learn more</a></p>
+					    	</div>
+					    </div>
+					     <div class="item">
+					     	<img src="imgs/la-liga.jpg">
+					    	<div class="carousel-caption">
+					    		<p>La Liga</p>
+					    		<p class="laLigaLearnMore">To learn more about La Liga, just click the learn more button below</p>
+					    		<p><a class="btn btn-primary btn-lg" href="la-liga" role="button">Learn more</a></p>
+					    	</div>
+					    </div>
+					  </div>
+					  <!-- Carousel nav -->
+					  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+					    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+					    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+				</section>
+
+				
+				<!-- <section class=>
+					
+				</section> -->
+				<!-- <section class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-xs-offset-0 col-xs-offset-2 col-xs-offset-3 col-xs-offset-3">
+					<div class="table-responsive">
+						<table class="premierLeague table table-bordered">
+							<caption>Premier League</caption>
+							<thead>
+								<tr class="tableHeads">
+									<th>#</th>
+									<th>Name</th>
+									<th>P</th>
+									<th>W</th>
+									<th>D</th>
+									<th>L</th>
+									<th>GF</th>
+									<th>GA</th>
+									<th>Pts</th>
+								</tr>
+							</tdead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Chelsea</td>
+									<td>21</td>
+									<td>15</td>
+									<td>4</td>
+									<td>2</td>
+									<td>46</td>
+									<td>19</td>
+									<td>49</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Manchester City</td>
+									<td>21</td>
+									<td>14</td>
+									<td>5</td>
+									<td>2</td>
+									<td>45</td>
+									<td>20</td>
+									<td>47</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Southampton</td>
+									<td>21</td>
+									<td>12</td>
+									<td>3</td>
+									<td>6</td>
+									<td>35</td>
+									<td>15</td>
+									<td>39</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Manchester United</td>
+									<td>21</td>
+									<td>10</td>
+									<td>7</td>
+									<td>4</td>
+									<td>34</td>
+									<td>21</td>
+									<td>37</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Arsenal</td>
+									<td>21</td>
+									<td>10</td>
+									<td>6</td>
+									<td>5</td>
+									<td>37</td>
+									<td>25</td>
+									<td>36</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>Tottenham Hotspurs</td>
+									<td>21</td>
+									<td>10</td>
+									<td>4</td>
+									<td>7</td>
+									<td>30</td>
+									<td>29</td>
+									<td>34</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>West Ham United</td>
+									<td>21</td>
+									<td>9</td>
+									<td>6</td>
+									<td>6</td>
+									<td>32</td>
+									<td>25</td>
+									<td>33</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>Liverpool</td>
+									<td>21</td>
+									<td>9</td>
+									<td>5</td>
+									<td>7</td>
+									<td>29</td>
+									<td>27</td>
+									<td>32</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td>Swansea City</td>
+									<td>21</td>
+									<td>8</td>
+									<td>6</td>
+									<td>7</td>
+									<td>26</td>
+									<td>25</td>
+									<td>30</td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>Newcastle United</td>
+									<td>21</td>
+									<td>7</td>
+									<td>6</td>
+									<td>8</td>
+									<td>25</td>
+									<td>33</td>
+									<td>27</td>
+								</tr>
+								<tr>
+									<td>11</td>
+									<td>Stock City</td>
+									<td>21</td>
+									<td>7</td>
+									<td>5</td>
+									<td>9</td>
+									<td>22</td>
+									<td>27</td>
+									<td>26</td>
+								</tr>
+								<tr>
+									<td>12</td>
+									<td>Everton</td>
+									<td>21</td>
+									<td>5</td>
+									<td>7</td>
+									<td>9</td>
+									<td>30</td>
+									<td>34</td>
+									<td>22</td>
+								</tr>
+								<tr>
+									<td>13</td>
+									<td>Aston Villa</td>
+									<td>21</td>
+									<td>5</td>
+									<td>7</td>
+									<td>9</td>
+									<td>11</td>
+									<td>23</td>
+									<td>22</td>
+								</tr>
+								<tr>
+									<td>14</td>
+									<td>West Bromwich Albion</td>
+									<td>21</td>
+									<td>5</td>
+									<td>6</td>
+									<td>10</td>
+									<td>20</td>
+									<td>29</td>
+									<td>21</td>
+								</tr>
+								<tr>
+									<td>15</td>
+									<td>Crystal Palace</td>
+									<td>21</td>
+									<td>4</td>
+									<td>8</td>
+									<td>9</td>
+									<td>22</td>
+									<td>31</td>
+									<td>20</td>
+								</tr>
+								<tr>
+									<td>16</td>
+									<td>Sunderland</td>
+									<td>21</td>
+									<td>3</td>
+									<td>11</td>
+									<td>7</td>
+									<td>18</td>
+									<td>31</td>
+									<td>20</td>
+								</tr>
+								<tr>
+									<td>17</td>
+									<td>Burnley</td>
+									<td>21</td>
+									<td>4</td>
+									<td>8</td>
+									<td>9</td>
+									<td>19</td>
+									<td>33</td>
+									<td>20</td>
+								</tr>
+								<tr>
+									<td>18</td>
+									<td>Hull City</td>
+									<td>21</td>
+									<td>4</td>
+									<td>7</td>
+									<td>10</td>
+									<td>20</td>
+									<td>27</td>
+									<td>19</td>
+								</tr>
+								<tr>
+									<td>19</td>
+									<td>Queens Park Rangers</td>
+									<td>21</td>
+									<td>5</td>
+									<td>4</td>
+									<td>12</td>
+									<td>23</td>
+									<td>37</td>
+									<td>19</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td>Leicester City</td>
+									<td>21</td>
+									<td>4</td>
+									<td>5</td>
+									<td>12</td>
+									<td>20</td>
+									<td>33</td>
+									<td>17</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section> -->
+			</section>	
+			<section class="la-liga">
+					<h2>La Liga</h2>
+			</section>
+			
+		</main>
+		<footer>
+
+		</footer>
+	</body>
+</html>
