@@ -6,6 +6,7 @@ $(function(){
     $(document).on("click","a",function(event){
       event.preventDefault();
       var thisHref = $(this).attr('href');
+      $('main').children().hide();
       $('.'+thisHref).show();
       console.log("thisHref: ",thisHref);
 
