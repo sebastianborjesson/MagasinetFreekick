@@ -13,7 +13,7 @@ $(function(){
           "page_info" : uploadPage
         },
         success: function(data) {
-
+          saveMenu();
           console.log("upload success: ", data);
           // $(this).reset();
         },

@@ -30,8 +30,8 @@ class ContentQueries extends PDOHelper {
 	  }
 
 
-  public function getMenuLinks($menu_name) {
-	    $menu_name = array(":menu_name" => $menu_name);
+  public function getMenuLinks($menu_link) {
+	    $menu_link = array(":menu_name" => $menu_link);
 	    $sql = "SELECT * FROM menu_links WHERE menu = :menu_name";
 	    
 	    return $this->query($sql, $menu_name);
@@ -53,17 +53,8 @@ class ContentQueries extends PDOHelper {
 
 	public function saveNewMenuName ($menu_name) {
 		
-		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
-    	$new_pid = $this->query($sql);
-
-    	$new_pid = $new_pid[0]["pid"];
-
-	    $url_path = $menu_name[":path"];
-
-	    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
-	    $menu_info = array(":path" => $page_path, ":pid" => $new_pid);
-	    
-	    return $this->query($sql, $menu_info);
+		$sql = "INSERT INTO menu_links (title) VALUES (:menu_data)";
+	    return $this->query($sql, $menu_name);
 	}
 
 }
