@@ -10,9 +10,10 @@ $(function(){
         url: "php/save_content.php",
         dataType: "json",
         data: {
-          "page_data" : uploadPage
+          "page_info" : uploadPage
         },
         success: function(data) {
+
           console.log("upload success: ", data);
           // $(this).reset();
         },
@@ -25,16 +26,18 @@ $(function(){
 	});
 
 	function saveMenu () {
+		var menuValue = $("#inputMenuName").val();
+		console.log("menu value: ", data);
 		$.ajax({
 			url: "php/save_content.php",
 			dataType: "json",
 			data: {
 			// giv other name
-			"menu_data" : uploadUrl
+			"menu_data" : menuValue
 		},
 		success: function(data) {
 			console.log("saveMachineNameUrlAlias success: ", data);
-			saveNewMenuLink();
+			
 			// $(this).reset();
 		},
 		error: function(data) {

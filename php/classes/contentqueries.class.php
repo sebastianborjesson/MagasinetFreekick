@@ -16,20 +16,6 @@ class ContentQueries extends PDOHelper {
 		return $this->query($sql, $page_data);
 	}
 
-	public function saveNewUrl ($url_data) {
-		
-		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
-    	$new_pid = $this->query($sql);
-
-    	$new_pid = $new_pid[0]["pid"];
-
-	    $url_path = $url_data[":path"];
-
-	    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
-	    $url_info = array(":path" => $page_path, ":pid" => $new_pid);
-	    
-	    return $this->query($sql, $url_info);
-	}
 
 	public function addMenuLink ($menu_data) {
 		$menu_link[":menu_link_menu"] = $this->menu_name;
@@ -63,6 +49,21 @@ class ContentQueries extends PDOHelper {
 		$sql = "SELECT * FROM pages WHERE title LIKE :search_param";
 		return $this->query($sql, $search_param);
 
+	}
+
+	public function saveNewMenuName ($menu_name) {
+		
+		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
+    	$new_pid = $this->query($sql);
+
+    	$new_pid = $new_pid[0]["pid"];
+
+	    $url_path = $menu_name[":path"];
+
+	    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
+	    $menu_info = array(":path" => $page_path, ":pid" => $new_pid);
+	    
+	    return $this->query($sql, $menu_info);
 	}
 
 }
