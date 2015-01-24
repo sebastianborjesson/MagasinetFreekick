@@ -32,6 +32,7 @@ class ContentQueries extends PDOHelper {
 	}
 
 	public function addMenuLink ($menu_data) {
+		$menu_link[":menu_link_menu"] = $this->menu_name;
 		$sql = "INSERT INTO menu_links (title, path, menu, plid, weight) VALUES (:title, :path, :menu_name, :plid, :weight)";
 		$this->query($sql, $menu_data);
 

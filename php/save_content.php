@@ -2,10 +2,20 @@
 
 include_once ("autoloader.php");
 
-$cg = New ContentQueries("127.0.0.1","cms_example","root","mysql");
+$cq = New ContentQueries("127.0.0.1","magasinet_freekick","root","mysql");
 
 // save content if told to do so (by receiving correct AJAX data)
 if (isset($_REQUEST["page_data"])) {
   //save page and echo ContentQueries response
   echo(json_encode($cq->storeNewPage($_REQUEST["page_data"])));
+}
+
+if (isset($_REQUEST["menu_data"])) {
+  //save page and echo ContentQueries response
+  echo(json_encode($cq->saveNewUrl($_REQUEST["menu_data"])));
+}
+
+if (isset($_REQUEST["menu_link"])) {
+  //save page and echo ContentQueries response
+  echo(json_encode($cq->addMenuLink($_REQUEST["menu_link"])));
 }
