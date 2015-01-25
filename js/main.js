@@ -26,8 +26,10 @@ $(function(){
 	});
 
 	function saveMenu () {
-		var menuValue = $("#inputMenuName").val();
-		console.log("menu value: ", data);
+		var menuValue = {
+			":path" : $("#inputMenuName").val()
+		};
+		console.log("menu value: ", menuValue);
 		$.ajax({
 			url: "php/save_content.php",
 			dataType: "json",
@@ -36,12 +38,12 @@ $(function(){
 			"menu_data" : menuValue
 		},
 		success: function(data) {
-			console.log("saveMachineNameUrlAlias success: ", data);
+			console.log("saveMenu success: ", data);
 			
 			// $(this).reset();
 		},
 		error: function(data) {
-			console.log("saveMachineNameUrlAlias error: ", data);
+			console.log("saveMenu error: ", data);
 		}
 	});
 		return false;

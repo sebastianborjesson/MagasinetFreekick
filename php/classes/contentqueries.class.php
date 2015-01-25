@@ -52,8 +52,8 @@ class ContentQueries extends PDOHelper {
 	}
 
 	public function saveNewMenuName ($menu_name) {
-		
-		$sql = "INSERT INTO menu_links (title) VALUES (:menu_data)";
+		$path = array(":menu_data" => $menu_name);
+		$sql = "INSERT INTO menu_links (title) VALUES ($path)";
 	    return $this->query($sql, $menu_name);
 	}
 

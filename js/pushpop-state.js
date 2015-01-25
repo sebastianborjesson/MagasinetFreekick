@@ -10,6 +10,9 @@ $(function(){
       $('.'+thisHref).show();
       console.log("thisHref: ",thisHref);
 
+      if ($(this).attr("a") && $(this).attr("a") !== "#") {
+        $(this).parents(".carousel").show();
+    }
       // Add the current "state/page" to our history
       history.pushState(null,null,thisHref);
 
