@@ -6,15 +6,15 @@ $(function(){
     $(document).on("click","a",function(event){
       event.preventDefault();
       var thisHref = $(this).attr('href');
-      $('main').children().hide();
-      $('.'+thisHref).show();
-      console.log("thisHref: ",thisHref);
 
-      if ($(this).attr("a") && $(this).attr("a") !== "#") {
-        $(this).parents(".carousel").show();
-    }
-      // Add the current "state/page" to our history
-      history.pushState(null,null,thisHref);
+      if (!$(this).hasClass("carousel-control")) {
+        $('main').children().hide();
+        $('.'+thisHref).show();
+        console.log("thisHref: ",thisHref);
+          
+        // Add the current "state/page" to our history
+        history.pushState(null,null,thisHref);
+      }
 
     });
 

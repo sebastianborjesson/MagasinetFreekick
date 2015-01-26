@@ -26,45 +26,48 @@ $(function(){
 	});
 
 	function saveMenu () {
-		var menuValue = {
-			":path" : $("#inputMenuName").val()
+		var urlValue = {
+			":path" : $("#inputPageUrl").val()
 		};
-		console.log("menu value: ", menuValue);
+		console.log("urlValue: ", urlValue);
 		$.ajax({
 			url: "php/save_content.php",
 			dataType: "json",
 			data: {
 			// giv other name
-			"menu_data" : menuValue
-		},
-		success: function(data) {
-			console.log("saveMenu success: ", data);
-			
-			// $(this).reset();
-		},
-		error: function(data) {
-			console.log("saveMenu error: ", data);
-		}
-	});
+			"menu_data" : urlValue
+			},
+			success: function(data) {
+				console.log("saveMenu success: ", data);
+				saveNewMenuLink();
+				// $(this).reset();
+			},
+			error: function(data) {
+				console.log("saveMenu error: ", data.responseText);
+			}
+		});
 		return false;
 	}
 
 	function saveNewMenuLink() {
+		var newMenuLink = {
+			":menu_link_title" : $("#inputMenuName").val()
+		};
+			console.log("newMenuLink: ", newMenuLink);
 		$.ajax({
 			url: "php/save_content.php",
 			dataType: "json",
 			data: {
-				"menu_link" : uploadMenuLink
+				"menu_link" : newMenuLink
 			},
 			success: function(data) {
-				console.log("menu_name in success: ", uploadMenuLink);
-				console.log("menu_name success: ", data);
-        // $(this).reset();
-        },
-			error: function(data) {
-				console.log("menu_name error: ", data);
-		}
-	});
+					console.log("menu_name success: ", data);
+					// $(this).reset();
+			},
+				error: function(data) {
+					console.log("menu_name error: ", data.responseText);
+			}
+		});
 		return false;
 	}
 
