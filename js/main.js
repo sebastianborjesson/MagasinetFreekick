@@ -27,7 +27,7 @@ $(function(){
 
 	function saveMenu () {
 		var urlValue = {
-			":path" : $("#inputPageUrl").val()
+			":path" : $("#inputPageUrl").val(),
 		};
 		console.log("urlValue: ", urlValue);
 		$.ajax({
@@ -51,7 +51,8 @@ $(function(){
 
 	function saveNewMenuLink() {
 		var newMenuLink = {
-			":menu_link_title" : $("#inputMenuName").val()
+			":menu_link_title" : $("#inputMenuName").val(),
+			
 		};
 			console.log("newMenuLink: ", newMenuLink);
 		$.ajax({
