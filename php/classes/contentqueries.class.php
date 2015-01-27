@@ -35,36 +35,52 @@ class ContentQueries extends PDOHelper {
 	}
 
 	public function storeNewPage ($page_data) {
-		
 		//adding user_id before insert
     	$page_data[":user_id"] = $this->user_info["user_id"];
 
+		$menu_data = $page_data["menuData"];
+    	unset($page_data["menuData"]);
+	    $url_path = $url_data[":path"];
+	    unset($url_data[":path"]);
+
 		$sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
-		return $this->query($sql, $page_data);
+		var_dump($page_data);
+		// save new page
+		$this->query($sql, $page_data);
+		$menu_data[":menu_link_path"] = $this->saveNewUrlAlias($url_data);
+		$this->addMenuLink($menu_data);
+
 	}
 
-	public function saveNewMenuName($menu_name) {
+	public function saveNewUrlAlias($url_data) {
 		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
     	$new_pid = $this->query($sql);
 
     	$new_pid = $new_pid[0]["pid"];
 		
-	    $url_path = $menu_name[":path"];
-	    unset($menu_name[":path"]);
+		
 
 	    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
-	    $menu_info = array(":path" => $url_path, ":pid" => $new_pid);
+	    $url_info = array(":path" => $url_path, ":pid" => $new_pid);
     	
-	    
-	    return $this->query($sql2, $menu_info);
+	    var_dump($url_info);
+	    return $this->query($sql2, $url_info);
 	}
 
-	public function addMenuLink($menu_link) {
+	public function addMenuLink($menu_data) {
 
-		$sql = "INSERT INTO menu_links (title, path, menu, plid) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu, )";
+		$menu_link[":menu_link_menu"] = "my-menu-machine-name";
+		$sql = "INSERT INTO menu_links (title, path, menu) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu)";
 
-		var_dump($menu_link);
-		return $this->query($sql, $menu_link);
+		$menu_data = array(
+			":menu_link_title" => $menu_data,
+			":menu_link_path" => $url_path,
+			":menu_link_menu" => $menu_link,
+			
+			);
+
+		var_dump($menu_data);
+		return $this->query($sql, $menu_data);
 
 	}
 

@@ -12,7 +12,7 @@ if (isset($_REQUEST["page_info"])) {
 
 if (isset($_REQUEST["menu_data"])) {
   //save page and echo ContentQueries response
-  echo(json_encode($cq->saveNewMenuName($_REQUEST["menu_data"])));
+  echo(json_encode($cq->saveNewUrlAlias($_REQUEST["menu_data"])));
 }
 
 if (isset($_REQUEST["menu_link"])) {
