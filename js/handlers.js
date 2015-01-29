@@ -25,7 +25,22 @@ $(function(){
 
 	});
 
+	$(".sign-in-button").click(function(){
 
+		$(".pageForm").show();
+		$(".content-list").hide();
+
+
+	});
+
+
+	$(".sign-in .update").click(function(){
+
+		$(".pageForm").hide();
+		$(".content-list").show();
+
+
+	});
 
 
 	
