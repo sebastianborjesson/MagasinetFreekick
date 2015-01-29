@@ -15,7 +15,7 @@ $(function(){
         success: function(data) {
           saveUrlAlias();
           console.log("upload success: ", data);
-          // $(this).reset();
+         
         },
         error: function(data) {
           console.log("upload error: ", data.responseText);
@@ -40,7 +40,7 @@ $(function(){
 			success: function(data) {
 				console.log("saveMenu success: ", data);
 				saveNewMenuLink();
-				// $(this).reset();
+				
 			},
 			error: function(data) {
 				console.log("saveMenu error: ", data.responseText);
@@ -65,7 +65,7 @@ $(function(){
 			},
 			success: function(data) {
 					console.log("menu_name success: ", data);
-					// $(this).reset();
+					
 			},
 				error: function(data) {
 					console.log("menu_name error: ", data.responseText);
@@ -73,6 +73,8 @@ $(function(){
 		});
 		return false;
 	}
+
+	
 
 
 

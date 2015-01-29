@@ -22,21 +22,36 @@ class ContentQueries extends PDOHelper {
 	    return $this->query($sql, $menu_name);
 	  }
 
-	public function updatePage() {
-		$sql = "UPDATE pages, url_alias, menu_links SET ";
-	}
 
 	public function getAllPages() {
-		$sql = "SELECT pages.pid, pages.title, pages.body, pages.created, CONCAT(users.fname, ' ', users.lname) as author FROM pages, users";
+		$sql = "SELECT pages.pid, pages.title, pages.body, CONCAT(users.fname, ' ', users.lname) as author, pages.created FROM pages, users";
 		return $this->query($sql);
 	}
 
-	public function searchForPages($search_param) {
-		$search_param = array(":search_param" => "%".$search_param."%");
-		$sql = "SELECT * FROM pages WHERE title LIKE :search_param";
-		return $this->query($sql, $search_param);
-
+	public function updatePage($update_data) {
+		$sql = "UPDATE pages, url_alias, menu_links 
+		SET pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.path=:menu_link_path, menu_links.title=:menu_link_title
+		WHERE pages.pid=:pid AND url_alias.path=pages.pid AND menu_links.path=url_alias.path";
+		return $this->query($sql, $update_data);
 	}
+
+	/*
+	UPDATE pages, url_alias, menu_links 
+	SET pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.path=:menu_link_path, menu_links.title=:menu_link_title
+	WHERE pages.pid=:pid AND url_alias.pid=pages.pid AND menu_links.path=url_alias.path
+
+	$update_data = array (
+	":title" => 'gsfgs',
+	":body" => 'dsfhtersg',
+	":path" => 'thrsteg',
+	":menu_link_path" => 'wgrehtrerg',
+	":menu_link_title" => 'feijbdgsfen',
+	":pid" => 113
+	);
+
+
+	*/
+	
 
 	public function storeNewPage ($page_data) {
 
