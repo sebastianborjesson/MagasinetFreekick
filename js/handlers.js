@@ -20,7 +20,7 @@ $(function(){
 							tableData.append('<td>'+data[i].title+"</td>");
 							tableData.append('<td>'+data[i].author+"</td>");
 							tableData.append('<td>'+data[i].created+"</td>");
-							tableData.append('<td><button class="btn btn-xs">Edit</button></td>');
+							tableData.append('<td><button class="edit btn btn-xs">Edit</button></td>');
 
 							//when edit is clicked
 							//find data using
@@ -37,6 +37,14 @@ $(function(){
 		return false;
 	}
 
+	$(document).on("click",".edit", function() {
+
+		$('.content-list').hide();
+		$('.pageForm').show();
+		$(this).parents("tr").data("page");
+		console.log($(this).parents("tr").data("page"));
+
+	});
 
 	$('.carousel').carousel({
 		interval: 2000,

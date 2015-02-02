@@ -22,7 +22,6 @@ class ContentQueries extends PDOHelper {
 	    return $this->query($sql, $menu_name);
 	  }
 
-
 	public function getAllPages() {
 		$sql = "SELECT pages.pid, pages.title, pages.body, CONCAT(users.fname, ' ', users.lname) as author, pages.created FROM pages, users";
 		return $this->query($sql);
@@ -89,8 +88,7 @@ class ContentQueries extends PDOHelper {
 	}
 
 	public function addMenuLink($menu_datas) {
-		
-		
+				
 		$menu_link[":menu_link_menu"] = "my-menu-machine-name";
 		$sql = "INSERT INTO menu_links (title, path, menu) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu)";
 

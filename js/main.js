@@ -38,12 +38,12 @@ $(function(){
 			"menu_data" : urlValue
 			},
 			success: function(data) {
-				console.log("saveMenu success: ", data);
+				console.log("saveUrlAlias success: ", data);
 				saveNewMenuLink();
 				
 			},
 			error: function(data) {
-				console.log("saveMenu error: ", data.responseText);
+				console.log("saveUrlAlias error: ", data.responseText);
 			}
 		});
 		return false;
@@ -64,11 +64,11 @@ $(function(){
 				"menu_link" : newMenuLink
 			},
 			success: function(data) {
-					console.log("menu_name success: ", data);
+					console.log("saveNewMenuLink success: ", data);
 					
 			},
 				error: function(data) {
-					console.log("menu_name error: ", data.responseText);
+					console.log("saveNewMenuLink error: ", data.responseText);
 			}
 		});
 		return false;
