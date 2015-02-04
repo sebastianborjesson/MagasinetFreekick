@@ -17,9 +17,10 @@ $(function(){
 							tableData.data("page", data[i]);
 							
 							tableData.append('<td><span class="badge">'+data[i].pid+"</span></td>");
+							tableData.append('<td>'+data[i].pageTitle+"</td>");
+							tableData.append('<td>'+data[i].body+"</td>");
+							tableData.append('<td>'+data[i].path+"</td>");
 							tableData.append('<td>'+data[i].title+"</td>");
-							tableData.append('<td>'+data[i].author+"</td>");
-							tableData.append('<td>'+data[i].created+"</td>");
 							tableData.append('<td><button class="edit btn btn-xs">Edit</button></td>');
 
 							//when edit is clicked
@@ -43,6 +44,30 @@ $(function(){
 		$('.pageForm').show();
 		$(this).parents("tr").data("page");
 		console.log($(this).parents("tr").data("page"));
+		editPage($(this).parents("tr").data("page"));
+
+	});
+
+	function editPage(pageData) {
+		$("#inputPageTitle").val(pageData.pageTitle);
+		$("#inputPageBody").val(pageData.body);
+		$("#inputPageUrl").val(pageData.path);
+		$("#inputMenuName").val(pageData.title);
+
+	}
+
+	$(".sign-in-button").click(function(){
+
+		$(".pageForm").show();
+		$(".content-list").hide();
+		
+	});
+
+	$(".sign-in .update").click(function(){
+
+		$(".pageForm").hide();
+		$(".content-list").show();
+		getPages();
 
 	});
 
@@ -68,23 +93,22 @@ $(function(){
 
 	});
 
-	$(".sign-in-button").click(function(){
-
-		$(".pageForm").show();
-		$(".content-list").hide();
-
-
+	$(".pageForm .update-form").submit(function() {
+		$.ajax({
+			url:"php/save_content.php",
+			dataType:"json",
+			data: {
+				"update_page" : 1
+			},
+			success: function(data) {
+				console.log("updatePageValues success: ", data);
+			},
+			error: function(data) {
+				console.log("updatePageValues error: ", data.responseText);
+			}
+		});
+		return false;
 	});
-
-
-	$(".sign-in .update").click(function(){
-
-		$(".pageForm").hide();
-		$(".content-list").show();
-		getPages();
-
-	});
-
 
 	
 

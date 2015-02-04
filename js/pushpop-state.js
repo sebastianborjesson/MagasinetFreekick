@@ -31,7 +31,7 @@ $(function(){
 
 
       $('header .active').removeClass('active');
-      $('.'+pageName+"-button").addClass('active');
+      $('.'+pageName).addClass('active');
       $('main').children().hide();
       $('.'+pageName).show();
     }

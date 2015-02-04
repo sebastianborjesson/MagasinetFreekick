@@ -23,7 +23,9 @@ class ContentQueries extends PDOHelper {
 	  }
 
 	public function getAllPages() {
-		$sql = "SELECT pages.pid, pages.title, pages.body, CONCAT(users.fname, ' ', users.lname) as author, pages.created FROM pages, users";
+		$sql = "SELECT pages.pid, pages.title AS pageTitle, pages.body, url_alias.path, menu_links.title
+		FROM pages, url_alias, menu_links 
+		WHERE pages.pid = url_alias.pid AND url_alias.path = menu_links.path";
 		return $this->query($sql);
 	}
 
@@ -36,15 +38,15 @@ class ContentQueries extends PDOHelper {
 
 	/*
 	UPDATE pages, url_alias, menu_links 
-	SET pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.path=:menu_link_path, menu_links.title=:menu_link_title
-	WHERE pages.pid=:pid AND url_alias.pid=pages.pid AND menu_links.path=url_alias.path
+	SET pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.path =:menu_link_path, menu_links.title=:menu_link_title
+	WHERE pages.pid=:pid AND url_alias.pid=pages.pid AND url_alias.path=menu_links.path AND menu_links.title='fnoiasnlfk'
 
 	$update_data = array (
-	":title" => 'gsfgs',
-	":body" => 'dsfhtersg',
-	":path" => 'thrsteg',
-	":menu_link_path" => 'wgrehtrerg',
-	":menu_link_title" => 'feijbdgsfen',
+	":title" => 'brewve',
+	":body" => 'btergwe',
+	":path" => 'tnehrgw',
+	":menu_link_path" => 'tnehrgw',
+	":menu_link_title" => 'thergwe',
 	":pid" => 113
 	);
 

@@ -14,7 +14,7 @@
 	<body>
 		<header class="container">
 			<section class="row">
-				<nav class="menuBar navbar navbar-default">
+				<nav class="menuBar anavbar navbar-default">
 					<div class="navbar-header">
 				      <li type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
 				        <span class="sr-only">Toggle navigation</span>
@@ -22,46 +22,33 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <li class="home-button">
+				      <li class="home">
 				      	<a class="navbar-brand" href="home">Magasinet Freekick</a>
 				      </li>
 				    </div>
 				    <div class="collapse navbar-collapse" id="navbar-collapse-1">
 				    	<ul class="nav navbar-nav">
-				    		<li class="active home-button"><a href="home">Home</a></li>
-				    		<li class="premier-league-button"><a href="premier-league">Premier League</a></li>
-				    		<li class="ligue-1-button"><a href="ligue-1">Ligue 1</a></li>
-				    		<li class="la-liga-button"><a href="la-liga">La Liga</a></li>
+				    		<li class="active home"><a href="home">Home</a></li>
+				    		<li class="premier-league"><a href="premier-league">Premier League</a></li>
+				    		<li class="ligue-1"><a href="ligue-1">Ligue 1</a></li>
+				    		<li class="la-liga"><a href="la-liga">La Liga</a></li>
 				    		<li class="dropdown">
 				    			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other leagues <span class="caret"></span></a>
 					    		<ul class="dropdown-menu" role="menu">
-	  								<li class="serie-a-button"><a href="serie-a">Italy: Serie A</a></li>
-	  								<li class="bundesliga-button"><a href="bundesliga">Germany: Bundesliga</a></li>
-	  								<li class="eredivisie-button"><a href="eredivisie">The Netherlands: Eredivisie</a></li>
-	  								<li class="allsvenskan-button"><a href="allsvenskan">Sweden: Allsvenskan</a></li>
+	  								<li class="serie-a"><a href="serie-a">Italy: Serie A</a></li>
+	  								<li class="bundesliga"><a href="bundesliga">Germany: Bundesliga</a></li>
+	  								<li class="eredivisie"><a href="eredivisie">The Netherlands: Eredivisie</a></li>
+	  								<li class="allsvenskan"><a href="allsvenskan">Sweden: Allsvenskan</a></li>
 	  							</ul>
 				    		</li>
 				    	</ul>
-				    	<li class="sign-in-button nav navbar-nav navbar-right">
+				    	<li class="sign-in nav navbar-nav navbar-right">
 				    		<a class="btn btn-default" href="sign-in" role="button">Sign in</a>
 				    	</li>
 				    </div>
 				</nav>
 			</section>
-			<section>
-				<ol class="breadcrumb">
-  					<li class="active">Home</li>
-  					
-  					<!-- <li><a href="premier-league">Premier League</a></li>
-  					<li><a href="ligue-1">Ligue 1</a></li>
-  					<li><a href="la-liga">La Liga</a></li>
-  					<li><a href="serie-a">Serie A</a></li>
-  					<li><a href="bundesliga">Bundesliga</a></li>
-  					<li><a href="eredivisie">Eredivisie</a></li>
-  					<li><a href="allsvenskan">Allsvenskan</a></li> -->
-
-				</ol>
-			</section>
+			
 		</header>
 		<main class="container">
 			
@@ -391,8 +378,9 @@
 					    <label for="inputMenuName">Menu title:</label>
 					    <input type="text" class="form-control" id="inputMenuName" placeholder="Enter menu title..." required>
 					  </div>
-					  <button type="submit" class="btn btn-default">Submit</button>
+					  <input type="submit" class="submit-form btn btn-default" value="Submit">
 
+					  <input type="submit" class="update-form btn btn-default" value="Update">
 
 					</form>
 				</article>
@@ -408,8 +396,9 @@
 				               
 			            <th>pid:</th>
 		                <th>Title:</th>
-		                <th>Author:</th>
-		                <th>Created:</th>
+		                <th>Body:</th>
+		                <th>Url:</th>
+		                <th>Menu Title:</th>
 		                <th>Actions:</th>
 		              </tr>
 		            </table>

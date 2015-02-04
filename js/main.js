@@ -1,6 +1,6 @@
 $(function(){
 
-	$(".pageForm").submit(function() {
+	$(".pageForm .submit-form").submit(function() {
     var uploadPage = {
       ":title" : $("#inputPageTitle").val(),
       ":body" : $("#inputPageBody").val(),
@@ -53,7 +53,7 @@ $(function(){
 		var newMenuLink = {
 			":menu_link_title" : $("#inputMenuName").val(),
 			":menu_link_path" : $("#inputPageUrl").val(),
-			"menu_link_menu" : "my-menu-machine-name",
+			":menu_link_menu" : "my-menu-machine-name",
 
 		};
 			console.log("newMenuLink: ", newMenuLink);
