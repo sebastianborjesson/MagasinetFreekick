@@ -94,11 +94,17 @@ $(function(){
 	});
 
 	$(".pageForm .update-form").submit(function() {
+		var updatePageValues = {
+			":title" : $("#inputPageTitle").val(),
+			":body" : $("#inputPageBody").val(),
+			":path" : $("#inputPageUrl").val(),
+			":menu_link_title" : $("#inputMenuName").val()
+		};
 		$.ajax({
 			url:"php/save_content.php",
 			dataType:"json",
 			data: {
-				"update_page" : 1
+				"update_page" : updatePageValues
 			},
 			success: function(data) {
 				console.log("updatePageValues success: ", data);
