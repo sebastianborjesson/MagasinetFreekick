@@ -1,6 +1,41 @@
 $(function(){
 
-	$(".pageForm .submit-form").submit(function() {
+	function updatePage() {
+		var updatePageValues = {
+			":title" : $("#inputPageTitle").val(),
+			":body" : $("#inputPageBody").val(),
+			":path" : $("#inputPageUrl").val(),
+			":menu_link_title" : $("#inputMenuName").val(),
+			":menu_link_path" : $("inputPageUrl").val(),
+		};
+		$.ajax({
+			url:"php/save_content.php",
+			dataType:"json",
+			data: {
+				"update_page" : updatePageValues
+			},
+			success: function(data) {
+				console.log("updatePageValues success: ", data);
+			},
+			error: function(data) {
+				console.log("updatePageValues error: ", data.responseText);
+			}
+		});
+		return false;
+	}
+
+	$(".pageForm").submit(function() {
+		console.log("form pageData: ", $(this).data("pageData"));
+		if ($(this).data("pageData")) {
+			updatePage();
+		}
+		else {
+			insertPage();
+		}
+		return false;
+	});
+
+	function insertPage() {
     var uploadPage = {
       ":title" : $("#inputPageTitle").val(),
       ":body" : $("#inputPageBody").val(),
@@ -23,7 +58,7 @@ $(function(){
       });
       //return false to prevent page reload on form submit
       return false;
-	});
+	}
 
 	function saveUrlAlias () {
 		var urlValue = {
@@ -73,7 +108,6 @@ $(function(){
 		});
 		return false;
 	}
-
 	
 
 

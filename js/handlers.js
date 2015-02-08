@@ -49,6 +49,7 @@ $(function(){
 	});
 
 	function editPage(pageData) {
+		$(".pageForm").data("pageData", pageData);
 		$("#inputPageTitle").val(pageData.pageTitle);
 		$("#inputPageBody").val(pageData.body);
 		$("#inputPageUrl").val(pageData.path);
@@ -57,7 +58,7 @@ $(function(){
 	}
 
 	$(".sign-in-button").click(function(){
-
+		$(".pageForm").data("pageData", null);
 		$(".pageForm").show();
 		$(".content-list").hide();
 		
@@ -92,31 +93,6 @@ $(function(){
 		$('.'+currentHref).show();
 
 	});
-
-	$(".pageForm .update-form").submit(function() {
-		var updatePageValues = {
-			":title" : $("#inputPageTitle").val(),
-			":body" : $("#inputPageBody").val(),
-			":path" : $("#inputPageUrl").val(),
-			":menu_link_title" : $("#inputMenuName").val()
-		};
-		$.ajax({
-			url:"php/save_content.php",
-			dataType:"json",
-			data: {
-				"update_page" : updatePageValues
-			},
-			success: function(data) {
-				console.log("updatePageValues success: ", data);
-			},
-			error: function(data) {
-				console.log("updatePageValues error: ", data.responseText);
-			}
-		});
-		return false;
-	});
-
 	
-
 
 });
