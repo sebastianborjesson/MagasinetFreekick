@@ -1,12 +1,13 @@
 $(function(){
 
-	function updatePage() {
+	function updatePage(page_id) {
 		var updatePageValues = {
 			":title" : $("#inputPageTitle").val(),
 			":body" : $("#inputPageBody").val(),
 			":path" : $("#inputPageUrl").val(),
 			":menu_link_title" : $("#inputMenuName").val(),
 			":menu_link_path" : $("inputPageUrl").val(),
+			":pid" : page_id
 		};
 		$.ajax({
 			url:"php/save_content.php",
@@ -27,7 +28,7 @@ $(function(){
 	$(".pageForm").submit(function() {
 		console.log("form pageData: ", $(this).data("pageData"));
 		if ($(this).data("pageData")) {
-			updatePage();
+			updatePage($(this).data("pageData").pid);
 		}
 		else {
 			insertPage();
