@@ -23,6 +23,9 @@ body {
     padding: 60px;
     margin-top: 30px;
 }
+.submit-form {
+    margin-top: 20px;
+}
 .sign-in {
     margin-top: 7px;
     padding-right: 30px;

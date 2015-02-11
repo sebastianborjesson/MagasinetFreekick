@@ -1,12 +1,7 @@
 $(function() {
 
-	function CreateNewMainMenu (menuLinks) {
-
-		var myMenuTree = buildMenuTreeStructure(menuLinks);
-
-		var myMainMenuAsHtml = $("<ul class='nav navbar-nav'></ul>");
-
-		myMainMenuAsHtml = buildNewMainMenu (myMainMenuAsHtml, menuTree);
+	function createAdminSelect () {
+		
 	}
 
 
@@ -36,9 +31,9 @@ $(function() {
 				hashMap["_" + aLink.plid].children.push(aLink);
 			}
 		}
+
 		console.log("menuTree: ", menuTree);
 		console.log("hashMap: ", hashMap);
-
 		return menuTree;
 	}
 

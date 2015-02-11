@@ -31,7 +31,6 @@ class ContentQueries extends PDOHelper {
 
 	public function updatePage($update_data) {
 
-
 		$sql = "UPDATE pages, url_alias, menu_links 
 		SET pages.pid=:pid, pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.title=:menu_link_title, menu_links.path=:path
 		WHERE pages.pid=:pid AND url_alias.pid=pages.pid AND menu_links.path=url_alias.path";

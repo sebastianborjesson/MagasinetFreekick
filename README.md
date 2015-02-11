@@ -1,6 +1,34 @@
-$("#inputPageTitle").val();
-		$("#inputPageBody").val();
-		$("#inputPageUrl").val();
-		$("#inputMenuName").val();
+<?php
 
-		SELECT pages.pid, pages.title, pages.body, url_alias.path, menu_links.title, menu_links.mlid, menu_links.plid FROM pages, url_alias, menu_links WHERE pages.pid = url_alias.pid AND url_alias.path = menu_links.path AND pages.pid = 2
+session_start();
+
+//users
+$users = array(
+	"anna" => "1234",
+	"pelle" => "4321",
+	"bea" => "178@bea"
+);
+
+$outputHtml = "";
+
+// Check if we have a logged in user 
+if (isset($_SESSION["loggedInUser"])){
+
+}
+else {
+
+	'<p><label for="username>User name:</label>'.
+	'<input type="text" id="username" name="username"></p>'.
+	'<p><label for="password>Password:</label>'.
+	'<input type="password" id="password" name="password"></p>'.
+	'</form>';
+}
+
+function CreateNewMainMenu (menuLinks) {
+
+		var myMenuTree = buildMenuTreeStructure(menuLinks);
+
+		var myMainMenuAsHtml = $("<ul class='nav navbar-nav'></ul>");
+
+		myMainMenuAsHtml = buildNewMainMenu (myMainMenuAsHtml, menuTree);
+	}

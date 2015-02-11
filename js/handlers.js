@@ -1,5 +1,19 @@
 $(function(){
 
+	$(".sign-in a.btn").click(function(){
+		$(".pageForm").data("pageData", null);
+		$(".pageForm").show();
+		$(".content-list").hide();
+	});
+
+	$(".sign-in .update").click(function(){
+
+		$(".pageForm").hide();
+		$(".content-list").show();
+		getPages();
+
+	});
+
 	function getPages() {
 		$.ajax({
 			url: "php/getcontent.php",
@@ -18,10 +32,12 @@ $(function(){
 							
 							tableData.append('<td><span class="badge">'+data[i].pid+"</span></td>");
 							tableData.append('<td>'+data[i].pageTitle+"</td>");
-							tableData.append('<td>'+data[i].body+"</td>");
 							tableData.append('<td>'+data[i].path+"</td>");
+							tableData.append('<td>'+data[i].body+"</td>");
 							tableData.append('<td>'+data[i].title+"</td>");
-							tableData.append('<td><button class="edit btn btn-xs">Edit</button></td>');
+							tableData.append('<td><button class="edit glyphicon glyphicon-pencil btn btn-xs"></button></td>');
+							tableData.append('<td><button class="delete glyphicon glyphicon-trash btn btn-xs"></button></td>');
+
 
 							//when edit is clicked
 							//find data using
@@ -56,21 +72,6 @@ $(function(){
 		$("#inputMenuName").val(pageData.title);
 
 	}
-
-	$(".sign-in-button").click(function(){
-		$(".pageForm").data("pageData", null);
-		$(".pageForm").show();
-		$(".content-list").hide();
-		
-	});
-
-	$(".sign-in .update").click(function(){
-
-		$(".pageForm").hide();
-		$(".content-list").show();
-		getPages();
-
-	});
 
 	$('.carousel').carousel({
 		interval: 2000,
