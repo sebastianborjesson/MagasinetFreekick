@@ -83,7 +83,7 @@ function buildMenuTreeStructure (menuLinksData) {
 function createMenu (data) {
 	var menuTree = buildMenuTreeStructure(data);
 
-	var myMenu = $("<ul class='nav navbar-nav'</ul>");
+	var myMenu = $("<ul class='nav navbar-nav'></ul>");
 
 	buildMenu(myMenu, menuTree);
 
@@ -103,12 +103,17 @@ function buildMenu (menuToHtml, menuItem) {
 		}
 		else {
 			// om en meny länk har barn, skapa dropdown-menyer för varje nivå
-			var subMenu = $('<ul class="dropdown-menu"></ul>');
 			// skapa dropdown li taggen
 			menuLinkObject = $('<li class="dropdown"><a href="'+menuItem[i].path+'">'+menuItem[i].title+'</a></li>');
 
+			var subMenu = $('<ul class="dropdown-menu"></ul>');
 			// rekusera funktionen för varje barn, beronde på hur många barn en förälder har
 			buildMenu(subMenu, menuItem[i].children);
+
+			menuLinkObject.prepend(subMenu);
+
+			console.log(menuLinkObject);
+
 		}
 		menuToHtml.append(menuLinkObject);
 	}

@@ -11,7 +11,8 @@ $(function(){
         $('main').children().hide();
         $('.'+thisHref).show();
         console.log("thisHref: ",thisHref);
-          
+        getAllMenuLinks(thisHref);
+
         // Add the current "state/page" to our history
         history.pushState(null,null,thisHref);
       }
@@ -28,10 +29,9 @@ $(function(){
       var l = location.href;
       var pageName = l.substring(l.lastIndexOf("/")+1);
       pageName = pageName || "home";
+      getAllMenuLinks(pageName);
 
-
-      $('header .active').removeClass('active');
-      $('.'+pageName).addClass('active');
+      console.log("dsad", $('a[href="'+pageName+'"]'));
       $('main').children().hide();
       $('.'+pageName).show();
     }

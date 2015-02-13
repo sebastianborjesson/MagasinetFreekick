@@ -113,31 +113,30 @@ $(function(){
 		return false;
 	}
 
-
-
-
-	function getAllMenuLinks (get_menu_links) {
-		$.ajax({
-			url: "php/get_menu_content.php",
-			dataType: "json",
-			// data: {
-			// "get_menu_links" : get_menu_links
-			// },
-			success: function(data) {
-				console.log("getAllMenuLinks success: ", data);
-				createAdminSelect (data);
-				createMenu(data);
-
-
-			},
-			error: function(data) {
-				console.log("getAllMenuLinks error: ", data.responseText);
-			}
-		});
-		return false;
-	}
 	
 
-getAllMenuLinks ();
+
 
 });
+
+
+function getAllMenuLinks (activePath) {
+	$.ajax({
+		url: "php/get_menu_content.php",
+		dataType: "json",
+		// data: {
+		// "get_menu_links" : get_menu_links
+		// },
+		success: function(data) {
+			console.log("getAllMenuLinks success: ", data);
+			createAdminSelect (data);
+			createMenu(data);
+			$('a[href="'+activePath+'"]').parent("li").addClass('active');
+
+		},
+		error: function(data) {
+			console.log("getAllMenuLinks error: ", data.responseText);
+		}
+	});
+	return false;
+}
