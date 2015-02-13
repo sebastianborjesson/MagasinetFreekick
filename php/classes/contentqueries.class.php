@@ -15,11 +15,11 @@ class ContentQueries extends PDOHelper {
 	    return $this->query($sql);
 	  }
 
-	public function getMenuLinks($menu_link) {
-	    $menu_link = array(":menu_name" => $menu_link);
-	    $sql = "SELECT * FROM menu_links WHERE menu = :menu_name";
+	public function getMenuLinks() {
+	    // $menu_link = array(":menu_name" => $menu_link);
+	    $sql = "SELECT * FROM menu_links";
 	    
-	    return $this->query($sql, $menu_name);
+	    return $this->query($sql);
 	  }
 
 	public function getAllPages() {
@@ -93,12 +93,15 @@ class ContentQueries extends PDOHelper {
 	public function addMenuLink($menu_datas) {
 				
 		$menu_link[":menu_link_menu"] = "my-menu-machine-name";
-		$sql = "INSERT INTO menu_links (title, path, menu) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu)";
+		$sql = "INSERT INTO menu_links (title, path, menu, plid, weight) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu, :menu_link_plid, :menu_link_weight)";
 
 		 $menu_data = array(
 		 	":menu_link_title" => $menu_datas,
 		 	":menu_link_path" => $url_path,
-			":menu_link_menu" => $menu_link
+			":menu_link_menu" => $menu_link,
+			":menu_link_plid" => $menu_datas,
+			":menu_link_weight" => $menu_datas
+
 			
 		 	);
 

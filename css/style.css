@@ -22,6 +22,7 @@ body {
     background-color: #fff;
     padding: 60px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .submit-form {
     margin-top: 20px;
@@ -32,6 +33,13 @@ body {
 }
 .content-list {
     margin-top: 30px;
+}
+.save-button {
+    margin-top: 30px;
+
+}
+.menuLinkColumns {
+    display: none;
 }
 
 /**

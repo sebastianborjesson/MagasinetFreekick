@@ -90,6 +90,8 @@ $(function(){
 			":menu_link_title" : $("#inputMenuName").val(),
 			":menu_link_path" : $("#inputPageUrl").val(),
 			":menu_link_menu" : "my-menu-machine-name",
+			":menu_link_plid" : $("select option:selected").val(),
+			":menu_link_weight" : $("#menu_weight").val()
 
 		};
 			console.log("newMenuLink: ", newMenuLink);
@@ -110,15 +112,21 @@ $(function(){
 		return false;
 	}
 
+
+
+
 	function getAllMenuLinks (get_menu_links) {
 		$.ajax({
 			url: "php/get_menu_content.php",
 			dataType: "json",
-			data: {
-				"get_menu_links" : get_menu_links
-			},
+			// data: {
+			// "get_menu_links" : get_menu_links
+			// },
 			success: function(data) {
 				console.log("getAllMenuLinks success: ", data);
+				createAdminSelect (data);
+
+
 			},
 			error: function(data) {
 				console.log("getAllMenuLinks error: ", data.responseText);
@@ -128,6 +136,6 @@ $(function(){
 	}
 	
 
-
+getAllMenuLinks ();
 
 });
