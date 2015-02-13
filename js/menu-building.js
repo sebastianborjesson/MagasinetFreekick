@@ -1,5 +1,5 @@
 
-
+// skapa admin selecten för att välja meny i admin-formuläret
 function createAdminSelect (data) {
 	var menuTree = buildMenuTreeStructure(data);
 
@@ -19,6 +19,7 @@ function createAdminSelect (data) {
 
 }
 
+// bygg dina val för meny du vill stoppa in ny sida i
 function buildOptions (selectInHtml, menuItem, level) {
 	// loopa igenom all menydata
 	for (var i = 0; i < menuItem.length; i++) {
@@ -76,5 +77,41 @@ function buildMenuTreeStructure (menuLinksData) {
 	
 	console.log("menuTree: ", menuTree);
 	return menuTree;
+}
+
+// skapa en meny som ligger i din navbar
+function createMenu (data) {
+	var menuTree = buildMenuTreeStructure(data);
+
+	var myMenu = $("<ul class='nav navbar-nav'</ul>");
+
+	buildMenu(myMenu, menuTree);
+
+	$(".navbar-nav").not(".sign-in").remove();
+	$("header .navbar-collapse").prepend(myMenu);
+
+}
+
+// printa ut meny på skärm
+function buildMenu (menuToHtml, menuItem) {
+	// loopa igenom dina menylänkar
+	for (var i = 0; i < menuItem.length; i++) {
+		var menuLinkObject;
+		// om en meny länk inte har något barn, skapa en li tagg direkt
+		if (menuItem[i].children.length < 1) {
+			menuLinkObject = $('<li><a href="'+menuItem[i].path+'">'+menuItem[i].title+'</a></li>');
+		}
+		else {
+			// om en meny länk har barn, skapa dropdown-menyer för varje nivå
+			var subMenu = $('<ul class="dropdown-menu"></ul>');
+			// skapa dropdown li taggen
+			menuLinkObject = $('<li class="dropdown"><a href="'+menuItem[i].path+'">'+menuItem[i].title+'</a></li>');
+
+			// rekusera funktionen för varje barn, beronde på hur många barn en förälder har
+			buildMenu(subMenu, menuItem[i].children);
+		}
+		menuToHtml.append(menuLinkObject);
+	}
+	return menuToHtml;
 }
 

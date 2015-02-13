@@ -41,6 +41,9 @@ body {
 .menuLinkColumns {
     display: none;
 }
+.content-list {
+    display: none;
+}
 
 /**
 *

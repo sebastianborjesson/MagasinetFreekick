@@ -17,6 +17,7 @@ $(function(){
 			},
 			success: function(data) {
 				console.log("updatePageValues success: ", data);
+
 			},
 			error: function(data) {
 				console.log("updatePageValues error: ", data.responseText);
@@ -125,6 +126,7 @@ $(function(){
 			success: function(data) {
 				console.log("getAllMenuLinks success: ", data);
 				createAdminSelect (data);
+				createMenu(data);
 
 
 			},
