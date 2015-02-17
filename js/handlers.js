@@ -109,6 +109,19 @@ $(function(){
 	//make the menu title field required
 		$(".menuAdding #inputMenuName").attr("required", $(this).is(":checked"));
 	});
+
+	$("#inputMenuName").keyup(function() {
+		var machineUrl = $("#inputMenuName").val().toLowerCase();
+
+		// ersätt mellanslag med bindesstreck
+		while (machineUrl.indexOf(' ') >= 0) {
+			machineUrl = machineUrl.replace(" ", "-");
+		}
+		while (machineUrl.indexOf('--') >= 0) {
+			machineUrl = machineUrl.replace("--", "-");
+		}
+		endUrl = machineUrl;
+	});
 	
 
 });

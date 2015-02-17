@@ -4,9 +4,9 @@ $(function(){
 		var updatePageValues = {
 			":title" : $("#inputPageTitle").val(),
 			":body" : $("#inputPageBody").val(),
-			":path" : $("#inputPageUrl").val(),
+			":path" : endUrl,
 			":menu_link_title" : $("#inputMenuName").val(),
-			":menu_link_path" : $("inputPageUrl").val(),
+			":menu_link_path" : endUrl,
 			":pid" : page_id
 		};
 		$.ajax({
@@ -16,7 +16,7 @@ $(function(){
 				"update_page" : updatePageValues
 			},
 			success: function(data) {
-				console.log("updatePageValues success: ", data);
+				
 
 			},
 			error: function(data) {
@@ -50,8 +50,9 @@ $(function(){
           "page_info" : uploadPage
         },
         success: function(data) {
-          saveUrlAlias();
-          console.log("upload success: ", data);
+			console.log("insertPage success: ", data);
+			saveUrlAlias();
+          
          
         },
         error: function(data) {
@@ -64,7 +65,7 @@ $(function(){
 
 	function saveUrlAlias () {
 		var urlValue = {
-			":path" : $("#inputPageUrl").val(),
+			":path" : endUrl
 		};
 		console.log("urlValue: ", urlValue);
 		$.ajax({
@@ -87,9 +88,11 @@ $(function(){
 	}
 
 	function saveNewMenuLink() {
+		
+			
 		var newMenuLink = {
 			":menu_link_title" : $("#inputMenuName").val(),
-			":menu_link_path" : $("#inputPageUrl").val(),
+			":menu_link_path" : endUrl,
 			":menu_link_menu" : "my-menu-machine-name",
 			":menu_link_plid" : $("select option:selected").val(),
 			":menu_link_weight" : $("#menu_weight").val()
@@ -103,7 +106,7 @@ $(function(){
 				"menu_link" : newMenuLink
 			},
 			success: function(data) {
-					console.log("saveNewMenuLink success: ", data);
+					console.log("Inserted new page: ", data);
 					
 			},
 				error: function(data) {
@@ -119,14 +122,11 @@ $(function(){
 
 });
 
-
+// hämta alla länkarna utanför en DOM-ready
 function getAllMenuLinks (activePath) {
 	$.ajax({
 		url: "php/get_menu_content.php",
 		dataType: "json",
-		// data: {
-		// "get_menu_links" : get_menu_links
-		// },
 		success: function(data) {
 			console.log("getAllMenuLinks success: ", data);
 			createAdminSelect (data);

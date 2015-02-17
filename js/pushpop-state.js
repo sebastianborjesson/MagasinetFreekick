@@ -31,7 +31,6 @@ $(function(){
       pageName = pageName || "home";
       getAllMenuLinks(pageName);
 
-      console.log("dsad", $('a[href="'+pageName+'"]'));
       $('main').children().hide();
       $('.'+pageName).show();
     }

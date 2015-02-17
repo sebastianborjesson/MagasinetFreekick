@@ -73,8 +73,6 @@ function buildMenuTreeStructure (menuLinksData) {
 			hashMap["_" + aLink.plid].children.push(aLink);
 		}
 	}
-
-	
 	console.log("menuTree: ", menuTree);
 	return menuTree;
 }
@@ -112,7 +110,6 @@ function buildMenu (menuToHtml, menuItem) {
 
 			menuLinkObject.prepend(subMenu);
 
-			console.log(menuLinkObject);
 
 		}
 		menuToHtml.append(menuLinkObject);

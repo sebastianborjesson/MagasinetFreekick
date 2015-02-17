@@ -91,6 +91,10 @@ class ContentQueries extends PDOHelper {
 	}
 
 	public function addMenuLink($menu_datas) {
+
+		if ($menu_datas[":menu_link_plid"] == "Top") {
+			$menu_datas[":menu_link_plid"] = NULL;
+		}
 				
 		$menu_link[":menu_link_menu"] = "my-menu-machine-name";
 		$sql = "INSERT INTO menu_links (title, path, menu, plid, weight) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu, :menu_link_plid, :menu_link_weight)";
