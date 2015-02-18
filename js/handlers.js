@@ -95,20 +95,7 @@ $(function(){
 
 	});
 
-	//adminForm add menu checkbox clickhandler to show/hide add menu fields
-	$('.menuAdding input[type="checkbox"]').click(function() {
-		if ($(this).is(":checked")) {
-			$(".pageForm .menuLinkColumns").fadeIn(500);
-			// createAdminSelect ();
-		}
-		else {
-			$(".pageForm .menuLinkColumns").fadeOut(500);
-		}
 
-	//whenever the user clicks add to menu, 
-	//make the menu title field required
-		$(".menuAdding #inputMenuName").attr("required", $(this).is(":checked"));
-	});
 
 	$("#inputMenuName").keyup(function() {
 		var machineUrl = $("#inputMenuName").val().toLowerCase();

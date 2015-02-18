@@ -32,16 +32,45 @@ $(function(){
 			updatePage($(this).data("pageData").pid);
 		}
 		else {
-			insertPage();
+			checkBeforeInsert();
 		}
 		return false;
 	});
+
+	function checkBeforeInsert() {
+    var urlValue = {
+      ":path" : endUrl
+    };
+
+    $.ajax({
+      url:"php/getcontent.php",
+      dataType: "json",
+      data: {
+        checkAlias: urlValue
+      },
+      success: function(data) {
+        console.log("checkAlias: ", data);
+        if (!data) {
+          insertPage();
+          // $(".pageForm")[0].reset();
+        } else {
+          $(".pageForm .alert").remove();
+          $(".pageForm").prepend('<div class="alert alert-warning alert-dismissible" role="alert">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+            '<strong>Notice:</strong> This page title is already taken! Please choose another one :)'+
+          '</div>');
+          window.scrollTo(100, 0);
+        }
+      }
+    });
+	}
 
 	function insertPage() {
     var uploadPage = {
       ":title" : $("#inputPageTitle").val(),
       ":body" : $("#inputPageBody").val(),
     };
+
     console.log("uploadPage: ", uploadPage);
       $.ajax({
         url: "php/save_content.php",
@@ -91,7 +120,7 @@ $(function(){
 		
 			
 		var newMenuLink = {
-			":menu_link_title" : $("#inputMenuName").val(),
+			":menu_link_title" : endUrl,
 			":menu_link_path" : endUrl,
 			":menu_link_menu" : "my-menu-machine-name",
 			":menu_link_plid" : $("select option:selected").val(),
@@ -107,7 +136,6 @@ $(function(){
 			},
 			success: function(data) {
 					console.log("Inserted new page: ", data);
-					
 			},
 				error: function(data) {
 					console.log("saveNewMenuLink error: ", data.responseText);
@@ -128,7 +156,7 @@ function getAllMenuLinks (activePath) {
 		url: "php/get_menu_content.php",
 		dataType: "json",
 		success: function(data) {
-			console.log("getAllMenuLinks success: ", data);
+			// console.log("getAllMenuLinks success: ", data);
 			createAdminSelect (data);
 			createMenu(data);
 			$('a[href="'+activePath+'"]').parent("li").addClass('active');

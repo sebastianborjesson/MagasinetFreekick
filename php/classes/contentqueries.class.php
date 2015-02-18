@@ -8,19 +8,29 @@ class ContentQueries extends PDOHelper {
   protected $user_info = array("user_id" => 1);
 
 
+  public function getPages($url_info) {
+  	$sql = "SELECT pid from url_alias WHERE path = :path";
+  	$url_paths = array(":path" => $url_info);
+  	$url_path_info = $this->query($sql, $url_paths);
 
+  	$sql2 = "SELECT * FROM pages WHERE pid = :pid";
+  	$page_info = array(":pid" => $url_path_info[0]["pid"]);
+
+  	return $this->query($sql2, $page_info);
+
+  }
 
 	public function getMenuNames() {
-	    $sql = "SELECT * FROM menus";
-	    return $this->query($sql);
-	  }
+    $sql = "SELECT * FROM menus";
+    return $this->query($sql);
+  }
 
 	public function getMenuLinks() {
-	    // $menu_link = array(":menu_name" => $menu_link);
-	    $sql = "SELECT * FROM menu_links";
-	    
-	    return $this->query($sql);
-	  }
+   
+    $sql = "SELECT * FROM menu_links";
+    
+    return $this->query($sql);
+  }
 
 	public function getAllPages() {
 		$sql = "SELECT pages.pid, pages.title AS pageTitle, pages.body, url_alias.path, menu_links.title
@@ -58,7 +68,7 @@ class ContentQueries extends PDOHelper {
 	public function storeNewPage ($page_data) {
 
 		//adding user_id before insert
-    	$page_data[":user_id"] = $this->user_info["user_id"];
+    $page_data[":user_id"] = $this->user_info["user_id"];
 
 		$menu_data = $page_data["menuData"];
     	unset($page_data["menuData"]);
@@ -75,19 +85,20 @@ class ContentQueries extends PDOHelper {
 	public function saveNewUrlAlias($url_data) {
 
 		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
-    	$new_pid = $this->query($sql);
+  	
+  	$new_pid = $this->query($sql);
 
-    	$new_pid = $new_pid[0]["pid"];
-		
-	    $url_path = $url_data[":path"];
-	    unset($url_data[":path"]);
-		
+  	$new_pid = $new_pid[0]["pid"];
+	
+    $url_path = $url_data[":path"];
+    unset($url_data[":path"]);
+	
 
-	    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
-	    $url_data = array(":path" => $url_path, ":pid" => $new_pid);
-    	
-	    
-	    return $this->query($sql2, $url_data);
+    $sql2 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
+    $url_data = array(":path" => $url_path, ":pid" => $new_pid);
+  	
+    
+    return $this->query($sql2, $url_data);
 	}
 
 	public function addMenuLink($menu_datas) {
@@ -97,7 +108,8 @@ class ContentQueries extends PDOHelper {
 		}
 				
 		$menu_link[":menu_link_menu"] = "my-menu-machine-name";
-		$sql = "INSERT INTO menu_links (title, path, menu, plid, weight) VALUES (:menu_link_title, :menu_link_path, :menu_link_menu, :menu_link_plid, :menu_link_weight)";
+		$sql = "INSERT INTO menu_links (title, path, menu, plid, weight) 
+		VALUES (:menu_link_title, :menu_link_path, :menu_link_menu, :menu_link_plid, :menu_link_weight)";
 
 		 $menu_data = array(
 		 	":menu_link_title" => $menu_datas,
@@ -111,6 +123,11 @@ class ContentQueries extends PDOHelper {
 
 		return $this->query($sql, $menu_datas);
 
+	}
+
+	public function checkAlias($alias) {
+		$sql = "SELECT * FROM url_alias WHERE path = :path;";
+		return $this->query($sql, $alias) ? true : false;
 	}
 
 }

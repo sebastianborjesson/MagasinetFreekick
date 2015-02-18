@@ -32,7 +32,7 @@ function buildOptions (selectInHtml, menuItem, level) {
 		var menuOptions = $('<option value="'+menuItem[i].mlid+'">'+levelIndi+" "+menuItem[i].title+'</option>');
 
 		// lägg till all meny data till varje option
-		menuOptions.data("menuData", menuItem[j]);
+		menuOptions.data("menuData", menuItem[i]);
 
 		// appenda till option
 		selectInHtml.append(menuOptions);
@@ -73,7 +73,7 @@ function buildMenuTreeStructure (menuLinksData) {
 			hashMap["_" + aLink.plid].children.push(aLink);
 		}
 	}
-	console.log("menuTree: ", menuTree);
+	// console.log("menuTree: ", menuTree);
 	return menuTree;
 }
 
