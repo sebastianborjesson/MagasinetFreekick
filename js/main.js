@@ -52,7 +52,6 @@ $(function(){
         console.log("checkAlias: ", data);
         if (!data) {
           insertPage();
-          // $(".pageForm")[0].reset();
         } else {
           $(".pageForm .alert").remove();
           $(".pageForm").prepend('<div class="alert alert-warning alert-dismissible" role="alert">' +
@@ -136,6 +135,14 @@ $(function(){
 			},
 			success: function(data) {
 					console.log("Inserted new page: ", data);
+          if (data) {
+            $(".pageForm").prepend('<div class="alert alert-success" role="alert">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+            '<strong>Success:</strong> You successfully inserted a new page! :)'+
+            '</div>');
+            window.scrollTo(100, 0);
+          }
+          $(".pageForm")[0].reset();
 			},
 				error: function(data) {
 					console.log("saveNewMenuLink error: ", data.responseText);
@@ -156,7 +163,7 @@ function getAllMenuLinks (activePath) {
 		url: "php/get_menu_content.php",
 		dataType: "json",
 		success: function(data) {
-			// console.log("getAllMenuLinks success: ", data);
+			console.log("getAllMenuLinks success: ", data);
 			createAdminSelect (data);
 			createMenu(data);
 			$('a[href="'+activePath+'"]').parent("li").addClass('active');
