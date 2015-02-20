@@ -20,7 +20,7 @@ class ContentQueries extends PDOHelper {
 
   	if ($result[0]["img_id"] !== null) {
   		$sql3 = "SELECT * FROM images WHERE iid = :img_id";
-  		$result[0]["imgData"] = $this->query($sql3, array(":img_id" => $result[0]["img_id"]));
+  		$result[0]["img_id"] = $this->query($sql3, array(":img_id" => $result[0]["img_id"]));
   	}
 
   	return $result;
@@ -62,7 +62,7 @@ class ContentQueries extends PDOHelper {
 		$menu_data = $page_data["menuData"];
     	unset($page_data["menuData"]);
 
-		$sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
+		$sql = "INSERT INTO pages (title, body, img_id, user_id) VALUES (:title, :body, :img_id, :user_id)";
 		
 		// save new page
 		return $this->query($sql, $page_data);

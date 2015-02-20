@@ -68,6 +68,7 @@ $(function(){
     var uploadPage = {
       ":title" : $("#inputPageTitle").val(),
       ":body" : $("#inputPageBody").val(),
+      ":img_id" : $(".imgSelect select").val()
     };
 
     console.log("uploadPage: ", uploadPage);

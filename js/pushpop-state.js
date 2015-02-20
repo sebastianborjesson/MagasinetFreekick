@@ -3,6 +3,7 @@ function showPage(pageName) {
   console.log("pageName: ", pageName);
   
   getAllMenuLinks(pageName);
+  getImages(pageName);
 
   if (pageName != "sign-in" && pageName != "home") {
     //getpage ajax
@@ -20,8 +21,8 @@ function showPage(pageName) {
         $(".pageContent").append("<article class='pageMaterial'/>");
         $(".pageContent").show();
         
-        $(".pageMaterial").append('<div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">'+data[0]["title"]+'</h1></div>'+'<div class="panel panel-body"><p>'+data[0]["body"]+'</p></div></div>');
-        
+
+        $(".pageMaterial").append('<div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">'+data[0]["title"]+'</h1></div>'+'<div class="panel panel-body"><p>'+data[0]["body"]+'</p>'+'<img src="imgs/'+data[0]["img_id"][0]["path"]+'"></div></div>');
 
 
       },
