@@ -152,26 +152,43 @@ $(function(){
 	}
 
 	
-
+getImages();
 
 
 });
 
+function getImages () {
+  $.ajax({
+    url: "php/get_images.php",
+    dataType: "json",
+    success: function(data) {
+      console.log("getImages success: ", data);
+      createImagesSelect(data);
+
+    },
+    error: function(data) {
+      console.log("getImages error: ", data.responseText);
+    }
+  });
+  return false;
+}
+
 // hämta alla länkarna utanför en DOM-ready
 function getAllMenuLinks (activePath) {
-	$.ajax({
-		url: "php/get_menu_content.php",
-		dataType: "json",
-		success: function(data) {
-			console.log("getAllMenuLinks success: ", data);
-			createAdminSelect (data);
-			createMenu(data);
-			$('a[href="'+activePath+'"]').parent("li").addClass('active');
+  $.ajax({
+    url: "php/get_menu_content.php",
+    dataType: "json",
+    success: function(data) {
+      console.log("getAllMenuLinks success: ", data);
+      createAdminSelect (data);
+      createMenu(data);
+      $('a[href="'+activePath+'"]').parent("li").addClass('active');
 
-		},
-		error: function(data) {
-			console.log("getAllMenuLinks error: ", data.responseText);
-		}
-	});
-	return false;
+    },
+    error: function(data) {
+      console.log("getAllMenuLinks error: ", data.responseText);
+    }
+  });
+  return false;
 }
+

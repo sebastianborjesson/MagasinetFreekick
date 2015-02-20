@@ -16,13 +16,20 @@ class ContentQueries extends PDOHelper {
   	$sql2 = "SELECT * FROM pages WHERE pid = :pid";
   	$page_info = array(":pid" => $url_path_info[0]["pid"]);
 
-  	return $this->query($sql2, $page_info);
+  	$result = $this->query($sql2, $page_info);
 
+  	if ($result[0]["img_id"] !== null) {
+  		$sql3 = "SELECT * FROM images WHERE iid = :img_id";
+  		$result[0]["imgData"] = $this->query($sql3, array(":img_id" => $result[0]["img_id"]));
+  	}
+
+  	return $result;
   }
 
-	public function getMenuNames() {
-    $sql = "SELECT * FROM menus";
-    return $this->query($sql);
+  public function getImages() {
+  	$sql = "SELECT * FROM images";
+
+  	return $this->query($sql);
   }
 
 	public function getMenuLinks() {
@@ -47,24 +54,6 @@ class ContentQueries extends PDOHelper {
 		return $this->query($sql, $update_data);
 	}
 
-	/*
-	UPDATE pages, url_alias, menu_links 
-	SET pages.title=:title, pages.body=:body, url_alias.path=:path, menu_links.path =:menu_link_path, menu_links.title=:menu_link_title
-	WHERE pages.pid=:pid AND url_alias.pid=pages.pid AND url_alias.path=menu_links.path AND menu_links.title='fnoiasnlfk'
-
-	$update_data = array (
-	":title" => 'brewve',
-	":body" => 'btergwe',
-	":path" => 'tnehrgw',
-	":menu_link_path" => 'tnehrgw',
-	":menu_link_title" => 'thergwe',
-	":pid" => 113
-	);
-
-
-	*/
-	
-
 	public function storeNewPage ($page_data) {
 
 		//adding user_id before insert
@@ -87,7 +76,6 @@ class ContentQueries extends PDOHelper {
 		$sql = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
   	
   	$new_pid = $this->query($sql);
-
   	$new_pid = $new_pid[0]["pid"];
 	
     $url_path = $url_data[":path"];

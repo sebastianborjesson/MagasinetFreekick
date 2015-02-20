@@ -21,6 +21,7 @@ function showPage(pageName) {
         $(".pageContent").show();
         
         $(".pageMaterial").append('<div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">'+data[0]["title"]+'</h1></div>'+'<div class="panel panel-body"><p>'+data[0]["body"]+'</p></div></div>');
+        
 
 
       },
