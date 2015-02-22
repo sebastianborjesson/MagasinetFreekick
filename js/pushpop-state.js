@@ -28,7 +28,7 @@ function showPage(pageName) {
 
       },
       error: function(data) {
-        console.log("showPage error: ", data.responseText);
+        console.log("showPage error: ", data);
       }
     });
 

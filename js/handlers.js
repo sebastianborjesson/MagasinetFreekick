@@ -36,7 +36,6 @@ $(function(){
 							tableData.append('<td>'+data[i].body+"</td>");
 							tableData.append('<td>'+data[i].title+"</td>");
 							tableData.append('<td><button class="edit glyphicon glyphicon-pencil btn btn-xs"></button></td>');
-							tableData.append('<td><button class="delete glyphicon glyphicon-trash btn btn-xs"></button></td>');
 
 
 							//when edit is clicked

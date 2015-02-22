@@ -6,7 +6,7 @@
 */
 .menuBar {
     margin-top: 20px;
-    height: 52px;
+    /*height: 52px;*/
 }
 .dropdown-menu > .dropdown > .dropdown-menu {
   top: 0;
@@ -19,6 +19,14 @@
 }
 .dropdown a {
     font-family: 'Ubuntu', sans-serif;
+}
+.navbar-toggle > .collapsed {
+    position: absolute;
+    z-index: 10;
+}
+.navbar-toggle > .active {
+    position: relative;
+    z-index: 10;
 }
 
 
