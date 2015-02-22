@@ -23,7 +23,7 @@ function showPage(pageName) {
         
 
         $(".pageMaterial").append('<div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">'+data[0]["title"]+'</h1></div>'+
-          '<div class="panel panel-body"><p>'+data[0]["body"]+'</p>'+'<img src="imgs/'+data[0]["img_id"][0]["path"]+'"></div></div>');
+          '<div class="panel panel-body"><p>'+data[0]["body"]+'</p>'+'<img src="imgs/'+data[0]["img_id"][0]["path"]+'" class="img-responsive"></div></div>');
 
 
       },
