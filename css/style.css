@@ -17,6 +17,9 @@
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
+.dropdown a {
+    font-family: 'Ubuntu', sans-serif;
+}
 
 
 /**
@@ -57,10 +60,12 @@ body {
     margin-top: 20px;
 }
 .panel-title {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     padding-left: 10px;
 }
 .panel-body {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
     padding-right: 10px;
 }
@@ -73,6 +78,7 @@ body {
 .headlineCarousel {
     font-size: 30px;
     padding-top: 150px;
+    z-index: 100;
 }   
 .firstCarouselPTag {
     padding: 150px;
@@ -132,4 +138,28 @@ body {
   height: 100%;
 }
 
+.footerData {
+ position: absolute;
+ background-color: black;
+ z-index: 10;
+ border: 1px solid black;
+ margin-top: 60px;
+ width: 100%;
+ background: #115519;
+ color: black;
+}
+.footContent {
+    background-color: #115519;
+}
+.footContent p {
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 40px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 1280px) {
+    img {
+        width: 980px;
+    }
+}
 

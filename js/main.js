@@ -154,10 +154,39 @@ $(function(){
 
 	
 getImages();
+getFooter();
 
 
 });
+// hämta footer-information
+function getFooter () {
+  $.ajax ({
+    url: "php/get_footer.php",
+    dataType: "json",
+    success: function(data) {
+      console.log("getFooter success: ", data);
+      for (var i = 0; i < data.length; i++) {
+        var footerData = $("<p class='footContent'/>");
 
+        footerData.append("<p><strong>Contact info:</strong></p>");
+        footerData.append("<p>Name: "+data[i].name+"</p>");
+        footerData.append("<p>Email: "+data[i].email+"</p>");
+        footerData.append("<p>Phone number: "+data[i].phone+"</p>");
+        footerData.append("<p>Street: "+data[i].street+"</p>");
+        footerData.append("<p>Postalcode: "+data[i].postalcode+"</p>");
+        footerData.append("<p>City: "+data[i].city+"</p>");
+
+        $("footer .footerData").append(footerData);
+      }
+    },
+    error: function(data) {
+      console.log("getFooter error: ", data.responseText);
+    }
+  });
+  return false;
+}
+
+// hämta bild-information
 function getImages () {
   $.ajax({
     url: "php/get_images.php",
@@ -192,4 +221,5 @@ function getAllMenuLinks (activePath) {
   });
   return false;
 }
+
 
