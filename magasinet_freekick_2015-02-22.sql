@@ -7,7 +7,7 @@
 #
 # Värd: 127.0.0.1 (MySQL 5.6.17)
 # Databas: magasinet_freekick
-# Genereringstid: 2015-02-22 10:36:08 +0000
+# Genereringstid: 2015-02-22 22:35:04 +0000
 # ************************************************************
 
 
@@ -40,7 +40,7 @@ LOCK TABLES `footer` WRITE;
 
 INSERT INTO `footer` (`name`, `street`, `postalcode`, `city`, `phone`, `email`, `info`)
 VALUES
-	('Sebastian Börjesson','Regmentsgatan 12',21122,'Malmö','+46 572958374','sebastian@borjesson.se',NULL);
+	('Luka Modric','Regmentsgatan 12',21122,'Malmö','+46 572958374','fotbolls@kungen.boll',NULL);
 
 /*!40000 ALTER TABLE `footer` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -100,14 +100,19 @@ LOCK TABLES `menu_links` WRITE;
 
 INSERT INTO `menu_links` (`mlid`, `title`, `path`, `menu`, `plid`, `weight`)
 VALUES
-	(1,'ubjkl','ubjkl','my-menu-machine-name',NULL,0),
-	(2,'vhjkb','vhjkb','my-menu-machine-name',1,0),
-	(3,'fcghvj','fcghvj','my-menu-machine-name',NULL,0),
-	(4,'mtyntbr','mtyntbr','my-menu-machine-name',NULL,0),
-	(5,'ivyhkbj-iyvhkjb-','ivyhkbj-iyvhkjb-','my-menu-machine-name',NULL,0),
-	(6,'brsdv','brsdv','my-menu-machine-name',NULL,0),
-	(7,'bervsd','bervsd','my-menu-machine-name',NULL,0),
-	(8,'oivybnuh','oivybnuh','my-menu-machine-name',NULL,0);
+	(10,'premier-league','premier-league','my-menu-machine-name',NULL,0),
+	(11,'ligue-1','ligue-1','my-menu-machine-name',NULL,0),
+	(12,'la-liga','la-liga','my-menu-machine-name',NULL,0),
+	(13,'teams','teams','my-menu-machine-name',10,0),
+	(14,'scoring-race','scoring-race','my-menu-machine-name',10,0),
+	(15,'team','team','my-menu-machine-name',11,0),
+	(16,'scoring-races','scoring-races','my-menu-machine-name',11,0),
+	(17,'squads','squads','my-menu-machine-name',12,0),
+	(18,'goal-scoring-race','goal-scoring-race','my-menu-machine-name',12,0),
+	(19,'about-us','about-us','my-menu-machine-name',NULL,0),
+	(20,'liverpool','liverpool','my-menu-machine-name',13,0),
+	(21,'psg','psg','my-menu-machine-name',15,0),
+	(22,'real-madrid','real-madrid','my-menu-machine-name',17,0);
 
 /*!40000 ALTER TABLE `menu_links` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -162,14 +167,19 @@ LOCK TABLES `pages` WRITE;
 
 INSERT INTO `pages` (`pid`, `title`, `body`, `img_id`, `user_id`, `video_id`, `created`)
 VALUES
-	(1,'gcjvhn','cvjhkb',NULL,1,NULL,'2015-02-20 11:37:12'),
-	(2,'vhkbj','yvuhkjb',NULL,1,NULL,'2015-02-20 11:40:12'),
-	(3,'cvjhkb','ctvhjbk',NULL,1,NULL,'2015-02-20 11:40:54'),
-	(4,'brwvda','bfdgwe',NULL,1,NULL,'2015-02-20 12:15:26'),
-	(5,'lbjkcytuv','biujk',NULL,1,NULL,'2015-02-20 12:23:02'),
-	(6,'tbrsvd','efwgfbd',2,1,NULL,'2015-02-20 13:48:22'),
-	(7,'ntbersv','esbfd',2,1,NULL,'2015-02-20 13:49:53'),
-	(8,'vyukj','uvnkbnkb',4,1,NULL,'2015-02-20 13:50:44');
+	(10,'Premier League','The Premier League is an English professional league for men\'s association football clubs. At the top of the English football league system, it is the country\'s primary football competition. Contested by 20 clubs, it operates on a system of promotion and relegation with the Football League. Besides English clubs, those Welsh clubs competing in the English football pyramid can also qualify to play.\n\nThe Premier League is a corporation in which the 20 member clubs act as shareholders. Seasons run from August to May, with teams playing 38 matches each (playing each team in the league twice, home and away) totalling 380 matches in the season.[1] Most games are played in the afternoons of Saturdays and Sundays, the other games during weekday evenings. It is currently sponsored by Barclays Bank and thus officially known as the Barclays Premier League. Outside England, it is commonly referred to as the English Premier League (EPL).',2,1,NULL,'2015-02-22 14:01:52'),
+	(11,'Ligue 1','Ligue 1\n\ns the French professional league for association football clubs. It is the country\'s primary football competition and serves as the top division of the French football league system. Ligue 1 is one of two divisions making up the Ligue de Football Professionnel, the other being Ligue 2. Contested by 20 clubs, it operates on a system of promotion and relegation with Ligue 2. Seasons run from August to May, with teams playing 38 games each totaling 380 games in the season.\n\nLigue 1 was inaugurated on 11 September 1932 under the name National before switching to Division 1 after a year of existence. The name lasted until 2002 before switching to its current name. The current champions are Paris Saint-Germain, who won the 4th title of their history in the 2013–14 season.',3,1,NULL,'2015-02-22 14:03:08'),
+	(12,'La Liga','La Liga is the top professional association football division of the Spanish football league system. It is contested by 20 teams, with the three lowest placed teams relegated to the Segunda División and replaced by the top two teams in that division plus the winner of a play-off. A total of 60 teams have competed in La Liga, nine of which have been crowned champions. Since the 1950s, Real Madrid and Barcelona have dominated the championship. Real Madrid have won the title a record 32 times and Barcelona 22 times. During the 1930s and 1940s and in the last two decades, however, La Liga has seen other champions, including, Atlético Madrid, Athletic Bilbao, Valencia, Real Sociedad, Real Betis, Deportivo La Coruña and Sevilla.',5,1,NULL,'2015-02-22 14:14:53'),
+	(13,'Teams','\n\n1	Chelsea\n2	Manchester City\n3	Arsenal\n4	Manchester United\n5	Southampton\n6	Liverpool\n7	Tottenham Hotspur	\n8	West Ham United\n9	Swansea City\n10	Stoke City\n11	Newcastle United\n12	Everton\n13	Crystal Palace\n14	West Bromwich Albion\n15	Hull City\n16	Sunderland\n17	Queens Park Rangers\n18	Burnley\n19	Aston Villa\n20	Leicester City',2,1,NULL,'2015-02-22 19:37:28'),
+	(14,'Scoring race','\n1	Argentina Sergio Agüero	Manchester City	17\nSpain Diego Costa	Chelsea\n3	England Charlie Austin	Queens Park Rangers	14\nEngland Harry Kane	Tottenham Hotspur\n5	Chile Alexis Sánchez	Arsenal	12\n6	England Saido Berahino	West Bromwich Albion	10\nSenegal Papiss Cissé	Newcastle United\nNetherlands Robin van Persie	Manchester United\n9	Ivory Coast Wilfried Bony	Swansea City	9\nDenmark Christian Eriksen	Tottenham Hotspur\nBelgium Eden Hazard	Chelsea\nEngland Danny Ings	Burnley\nSenegal Diafra Sakho	West Ham United\nSpain David Silva	Manchester City\n',2,1,NULL,'2015-02-22 19:41:40'),
+	(15,'Teams','1	Lyon\n2	Paris Saint-Germain\n3	Marseille\n4	Monaco\n5	Saint-Étienne\n6	Bordeaux	\n7	Montpellier\n8	Guingamp\n9	Nice\n10	Bastia\n11	Nantes\n12	Lille\n13	Rennes\n14	Caen\n15	Reims\n16	Lorient\n17	Toulouse\n18	Evian\n19	Lens\n20	Metz	',3,1,NULL,'2015-02-22 20:14:16'),
+	(16,'Scoring race','1	France Alexandre Lacazette	Lyon	21\n2	France André-Pierre Gignac	Marseille	14\n3	Sweden Zlatan Ibrahimović	Paris Saint-Germain	11\nGuadeloupe Claudio Beauvue	Guingamp\n5	France Nabil Fekir	Lyon	9\n6	Denmark Daniel Wass	Evian TG	8\nUruguay Edinson Cavani	Paris Saint-Germain\nMali Cheick Diabaté	Bordeaux\nFrance Mathieu Duhamel	Evian TG\n10	France Paul-Georges Ntep	Rennes	7\nBrazil Carlos Eduardo	Nice\nFrance Wissam Ben Yedder	Toulouse\nGhana Jordan Ayew	Lorient\nFrance Christophe Mandanne	Guingamp\nUruguay Diego Rolán	Bordeaux\nCameroon Benjamin Moukandjo	Reims\nFrance Benjamin Jeannot	Lorient\nBrazil Lucas	Paris Saint-Germain\n',3,1,NULL,'2015-02-22 20:46:08'),
+	(17,'Teams','1	Real Madrid\n2	Barcelona\n3	Atlético Madrid\n4	Valencia\n5	Sevilla\n6	Villarreal\n7	Málaga\n8	Celta Vigo\n9	Espanyol\n10	Real Sociedad	\n11	Eibar\n12	Athletic Bilbao\n13	Getafe\n14	Rayo Vallecano\n15	Deportivo La Coruña\n16	Almería\n17	Elche\n18	Granada\n19	Levante\n20	Córdoba',5,1,NULL,'2015-02-22 20:50:03'),
+	(18,'Scoring Race','1	Portugal Cristiano Ronaldo	Real Madrid	28\n2	Argentina Lionel Messi	Barcelona	26\n3	Brazil Neymar	Barcelona	17\n4	France Antoine Griezmann	Atlético Madrid	14\n5	Colombia Carlos Bacca	Sevilla	13\n6	France Karim Benzema	Real Madrid	12\nCroatia Mario Mandžukić	Atlético Madrid\n8	Wales Gareth Bale	Real Madrid	10\nArgentina Luciano Vietto	Villarreal\n10	Spain Sergio García	Espanyol	9\nBrazil Jonathas	Elche\nUruguay Christian Stuani	Espanyol\n',5,1,NULL,'2015-02-22 20:51:18'),
+	(19,'About us','Bacon ipsum dolor amet bacon doner spare ribs tongue brisket. Salami tongue pork loin shank, tenderloin turducken fatback turkey beef spare ribs ribeye tri-tip sirloin. Ribeye short loin venison, brisket pastrami biltong beef ribs pancetta. Shoulder biltong short ribs drumstick ham hock. Kielbasa bresaola rump prosciutto, ham hock cupim turkey tongue jowl strip steak alcatra tenderloin. Kielbasa ham hock ribeye brisket pork loin salami picanha chicken cupim.\n\nMeatball pork belly strip steak, bresaola beef picanha shoulder salami alcatra tenderloin. Chuck cow porchetta jerky. Pork belly capicola shoulder landjaeger, venison flank jerky porchetta turducken hamburger tail. Frankfurter spare ribs picanha prosciutto. Sausage biltong beef ribs frankfurter rump swine. Kevin drumstick alcatra andouille, cow tenderloin landjaeger ham hock sausage rump tri-tip cupim swine chicken.\n\nFlank alcatra hamburger ball tip. Tenderloin pastrami filet mignon shoulder bacon porchetta. Ham hock frankfurter tail tenderloin jowl pork chop turducken hamburger kielbasa short loin brisket sirloin. Bacon landjaeger fatback alcatra, spare ribs hamburger meatloaf. Boudin chuck kevin ball tip. Shoulder meatball porchetta doner ham bresaola pork jowl picanha. Shank sirloin kielbasa chicken t-bone, fatback biltong.',4,1,NULL,'2015-02-22 20:53:03'),
+	(20,'Liverpool','Leberkas pork belly fatback tail, sausage strip steak drumstick andouille pastrami meatball kielbasa beef ribs tri-tip pancetta brisket. Capicola chicken shank ball tip flank swine andouille pork chop. Short loin picanha pork chop capicola, jowl tail tongue salami jerky biltong. Pastrami chuck pork loin meatball landjaeger, pork belly sirloin ground round ribeye chicken jowl corned beef.\n\nChuck kevin beef porchetta leberkas ham tongue brisket capicola venison sirloin ham hock salami. Bresaola shankle brisket, cow pork belly hamburger beef salami doner. Tail bresaola kielbasa pork chop. Andouille kevin cow sausage swine tri-tip ham hock beef cupim capicola pork belly tail frankfurter. Pork pork belly cow bresaola.\n\nMeatloaf porchetta meatball alcatra ground round shankle. Hamburger pork chop kielbasa brisket shoulder filet mignon venison strip steak pancetta beef ribs tail t-bone bacon turducken. Bresaola drumstick turducken swine, pork loin sausage filet mignon tongue beef. Pork chop spare ribs tri-tip, beef ribs pastrami kielbasa filet mignon hamburger jowl. Biltong tail chuck alcatra, ball tip jowl pork loin.',2,1,NULL,'2015-02-22 21:45:35'),
+	(21,'PSG','Shankle jowl flank turducken rump capicola pork brisket boudin. Salami leberkas venison, biltong shankle jowl bresaola andouille meatball hamburger swine jerky porchetta cow picanha. Fatback pork belly ball tip tenderloin short ribs rump shoulder tri-tip pork ham hock t-bone, kielbasa ham frankfurter. Shank tongue filet mignon, shoulder pig swine ball tip sausage chuck kevin drumstick flank picanha meatloaf. Boudin salami ribeye jerky t-bone, pork sirloin short ribs tenderloin pork loin pork belly picanha bresaola chuck sausage.\n\nPorchetta brisket beef ribs, pork loin short loin ribeye beef kevin frankfurter swine pork chicken flank drumstick spare ribs. Pork chop prosciutto biltong cow, bacon kevin doner jowl chuck venison salami kielbasa frankfurter meatloaf meatball. Meatloaf landjaeger filet mignon ham pork leberkas swine bresaola biltong tongue pork belly cupim. Porchetta pastrami jerky sausage cupim, drumstick meatloaf ground round.',3,1,NULL,'2015-02-22 21:46:19'),
+	(22,'Real Madrid','Kielbasa spare ribs cow pastrami shankle. Corned beef shank t-bone pork belly. Boudin kevin pig, fatback cupim shank bacon pancetta drumstick meatball meatloaf tenderloin. Shank venison beef bacon ham hock, pork belly pork chop brisket corned beef cow pork loin. Ham shoulder cow, short loin prosciutto biltong sausage turkey boudin.\n\nShank tail beef ribs pork chop turkey short ribs sausage rump leberkas cupim. Shank pancetta rump frankfurter strip steak chuck. Pastrami doner kevin, alcatra flank beef ribs kielbasa hamburger ribeye picanha sirloin. Doner shank t-bone, biltong pork belly kevin hamburger sausage salami drumstick short ribs.\n',5,1,NULL,'2015-02-22 21:47:11');
 
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -195,14 +205,19 @@ LOCK TABLES `url_alias` WRITE;
 
 INSERT INTO `url_alias` (`aid`, `path`, `pid`)
 VALUES
-	(1,'ubjkl',1),
-	(2,'vhjkb',2),
-	(3,'fcghvj',3),
-	(4,'mtyntbr',4),
-	(5,'ivyhkbj-iyvhkjb-',5),
-	(6,'brsdv',6),
-	(7,'bervsd',7),
-	(8,'oivybnuh',8);
+	(10,'premier-league',10),
+	(11,'ligue-1',11),
+	(12,'la-liga',12),
+	(13,'teams',13),
+	(14,'scoring-race',14),
+	(15,'team',15),
+	(16,'scoring-races',16),
+	(17,'squads',17),
+	(18,'goal-scoring-race',18),
+	(19,'about-us',19),
+	(20,'liverpool',20),
+	(21,'psg',21),
+	(22,'real-madrid',22);
 
 /*!40000 ALTER TABLE `url_alias` ENABLE KEYS */;
 UNLOCK TABLES;
